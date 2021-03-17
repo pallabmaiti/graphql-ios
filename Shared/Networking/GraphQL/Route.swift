@@ -4,24 +4,25 @@
 import Apollo
 import Foundation
 
-public final class AllLaunchesQuery: GraphQLQuery {
+public final class LaunchListQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query AllLaunches {
-      launchesPast(limit: 10) {
+    query LaunchList {
+      launchesPast(limit: 20) {
         __typename
-        mission_name
-        launch_date_local
-        launch_site {
-          __typename
-          site_name_long
-        }
+        ...LaunchFragment
       }
     }
     """
 
-  public let operationName: String = "AllLaunches"
+  public let operationName: String = "LaunchList"
+
+  public var queryDocument: String {
+    var document: String = operationDefinition
+    document.append("\n" + LaunchFragment.fragmentDefinition)
+    return document
+  }
 
   public init() {
   }
@@ -31,7 +32,7 @@ public final class AllLaunchesQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("launchesPast", arguments: ["limit": 10], type: .list(.object(LaunchesPast.selections))),
+        GraphQLField("launchesPast", arguments: ["limit": 20], type: .list(.object(LaunchesPast.selections))),
       ]
     }
 
@@ -60,9 +61,7 @@ public final class AllLaunchesQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("mission_name", type: .scalar(String.self)),
-          GraphQLField("launch_date_local", type: .scalar(String.self)),
-          GraphQLField("launch_site", type: .object(LaunchSite.selections)),
+          GraphQLFragmentSpread(LaunchFragment.self),
         ]
       }
 
@@ -70,10 +69,6 @@ public final class AllLaunchesQuery: GraphQLQuery {
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
-      }
-
-      public init(missionName: String? = nil, launchDateLocal: String? = nil, launchSite: LaunchSite? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Launch", "mission_name": missionName, "launch_date_local": launchDateLocal, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }])
       }
 
       public var __typename: String {
@@ -85,70 +80,153 @@ public final class AllLaunchesQuery: GraphQLQuery {
         }
       }
 
-      public var missionName: String? {
+      public var fragments: Fragments {
         get {
-          return resultMap["mission_name"] as? String
+          return Fragments(unsafeResultMap: resultMap)
         }
         set {
-          resultMap.updateValue(newValue, forKey: "mission_name")
+          resultMap += newValue.resultMap
         }
       }
 
-      public var launchDateLocal: String? {
-        get {
-          return resultMap["launch_date_local"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "launch_date_local")
-        }
-      }
-
-      public var launchSite: LaunchSite? {
-        get {
-          return (resultMap["launch_site"] as? ResultMap).flatMap { LaunchSite(unsafeResultMap: $0) }
-        }
-        set {
-          resultMap.updateValue(newValue?.resultMap, forKey: "launch_site")
-        }
-      }
-
-      public struct LaunchSite: GraphQLSelectionSet {
-        public static let possibleTypes: [String] = ["LaunchSite"]
-
-        public static var selections: [GraphQLSelection] {
-          return [
-            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("site_name_long", type: .scalar(String.self)),
-          ]
-        }
-
+      public struct Fragments {
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public init(siteNameLong: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong])
-        }
-
-        public var __typename: String {
+        public var launchFragment: LaunchFragment {
           get {
-            return resultMap["__typename"]! as! String
+            return LaunchFragment(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "__typename")
+            resultMap += newValue.resultMap
           }
         }
+      }
+    }
+  }
+}
 
-        public var siteNameLong: String? {
-          get {
-            return resultMap["site_name_long"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "site_name_long")
-          }
-        }
+public struct LaunchFragment: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment LaunchFragment on Launch {
+      __typename
+      id
+      mission_name
+      launch_date_local
+      launch_site {
+        __typename
+        site_name_long
+      }
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Launch"]
+
+  public static var selections: [GraphQLSelection] {
+    return [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLField("id", type: .scalar(GraphQLID.self)),
+      GraphQLField("mission_name", type: .scalar(String.self)),
+      GraphQLField("launch_date_local", type: .scalar(String.self)),
+      GraphQLField("launch_site", type: .object(LaunchSite.selections)),
+    ]
+  }
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID? = nil, missionName: String? = nil, launchDateLocal: String? = nil, launchSite: LaunchSite? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Launch", "id": id, "mission_name": missionName, "launch_date_local": launchDateLocal, "launch_site": launchSite.flatMap { (value: LaunchSite) -> ResultMap in value.resultMap }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID? {
+    get {
+      return resultMap["id"] as? GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var missionName: String? {
+    get {
+      return resultMap["mission_name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "mission_name")
+    }
+  }
+
+  public var launchDateLocal: String? {
+    get {
+      return resultMap["launch_date_local"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "launch_date_local")
+    }
+  }
+
+  public var launchSite: LaunchSite? {
+    get {
+      return (resultMap["launch_site"] as? ResultMap).flatMap { LaunchSite(unsafeResultMap: $0) }
+    }
+    set {
+      resultMap.updateValue(newValue?.resultMap, forKey: "launch_site")
+    }
+  }
+
+  public struct LaunchSite: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["LaunchSite"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("site_name_long", type: .scalar(String.self)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(siteNameLong: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "LaunchSite", "site_name_long": siteNameLong])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var siteNameLong: String? {
+      get {
+        return resultMap["site_name_long"] as? String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "site_name_long")
       }
     }
   }

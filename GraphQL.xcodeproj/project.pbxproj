@@ -8,9 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		169E97BB5FC1AE5ACA477207 /* Pods_GraphQL__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2BE14EEA733BAE83C5C311 /* Pods_GraphQL__macOS_.framework */; };
+		88CAA44B260059EB009D58EB /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA44A260059EB009D58EB /* ServiceManager.swift */; };
+		88CAA44C260059EB009D58EB /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA44A260059EB009D58EB /* ServiceManager.swift */; };
+		88CAA4CB260081E9009D58EB /* Action+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4CA260081E9009D58EB /* Action+Networking.swift */; };
+		88CAA4CC260081E9009D58EB /* Action+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4CA260081E9009D58EB /* Action+Networking.swift */; };
+		88CAA4DF26008B50009D58EB /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4DE26008B50009D58EB /* AppWireframe.swift */; };
+		88CAA4E026008B50009D58EB /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4DE26008B50009D58EB /* AppWireframe.swift */; };
+		88CAA4E426008B73009D58EB /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4E326008B73009D58EB /* View+Ext.swift */; };
+		88CAA4E526008B73009D58EB /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4E326008B73009D58EB /* View+Ext.swift */; };
+		88CAA4E926008D59009D58EB /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4E826008D59009D58EB /* LaunchCell.swift */; };
+		88CAA4EA26008D59009D58EB /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4E826008D59009D58EB /* LaunchCell.swift */; };
+		88CAA4EE2600922B009D58EB /* LaunchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */; };
+		88CAA4EF2600922B009D58EB /* LaunchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */; };
+		88CAA51F2601C691009D58EB /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */; };
 		D3B94BF58B6DE2B89930BFEA /* Pods_GraphQL__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC892C19F86D3C725903B25 /* Pods_GraphQL__iOS_.framework */; };
-		ED8968E725FFBD1400822A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* ContentView.swift */; };
-		ED8968E825FFBD1400822A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* ContentView.swift */; };
+		ED8968E725FFBD1400822A9D /* LaunchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* LaunchListView.swift */; };
+		ED8968E825FFBD1400822A9D /* LaunchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* LaunchListView.swift */; };
 		ED89690225FFC07A00822A9D /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = ED89690125FFC07A00822A9D /* Queries.graphql */; };
 		ED89690325FFC07A00822A9D /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = ED89690125FFC07A00822A9D /* Queries.graphql */; };
 		ED89693E25FFDB9E00822A9D /* GraphQLSchema.json in Resources */ = {isa = PBXBuildFile; fileRef = ED89693C25FFDB9E00822A9D /* GraphQLSchema.json */; };
@@ -27,9 +40,16 @@
 		1FC892C19F86D3C725903B25 /* Pods_GraphQL__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQL__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C72C5BE09C6C8694C4F931 /* Pods-GraphQL (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL (iOS).debug.xcconfig"; path = "Target Support Files/Pods-GraphQL (iOS)/Pods-GraphQL (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		5D2BE14EEA733BAE83C5C311 /* Pods_GraphQL__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQL__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CAA44A260059EB009D58EB /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		88CAA4CA260081E9009D58EB /* Action+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Action+Networking.swift"; sourceTree = "<group>"; };
+		88CAA4DE26008B50009D58EB /* AppWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
+		88CAA4E326008B73009D58EB /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		88CAA4E826008D59009D58EB /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
+		88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListViewModel.swift; sourceTree = "<group>"; };
+		88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		8D24D85128BFFD4763DC8C9D /* Pods-GraphQL (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL (iOS).release.xcconfig"; path = "Target Support Files/Pods-GraphQL (iOS)/Pods-GraphQL (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		E338BBC653C6ABE3446B1161 /* Pods-GraphQL (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL (macOS).debug.xcconfig"; path = "Target Support Files/Pods-GraphQL (macOS)/Pods-GraphQL (macOS).debug.xcconfig"; sourceTree = "<group>"; };
-		ED8968D325FFBD1100822A9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ED8968D325FFBD1100822A9D /* LaunchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListView.swift; sourceTree = "<group>"; };
 		ED8968D925FFBD1400822A9D /* GraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8968DC25FFBD1400822A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED8968E125FFBD1400822A9D /* GraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +83,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88CAA4C9260081D9009D58EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA4CA260081E9009D58EB /* Action+Networking.swift */,
+				88CAA4E326008B73009D58EB /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		88CAA4D826008A81009D58EB /* LaunchList */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA4E826008D59009D58EB /* LaunchCell.swift */,
+				ED8968D325FFBD1100822A9D /* LaunchListView.swift */,
+				88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */,
+			);
+			path = LaunchList;
+			sourceTree = "<group>";
+		};
+		88CAA4DD26008B50009D58EB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA4DE26008B50009D58EB /* AppWireframe.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		88CAA51D2601C67D009D58EB /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		8ADA8A2DCAE54A5F95EFFC25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +154,12 @@
 			isa = PBXGroup;
 			children = (
 				ED89694A25FFDEE800822A9D /* App */,
-				ED89694C25FFDEE800822A9D /* Resources */,
+				88CAA4DD26008B50009D58EB /* Constants */,
+				88CAA51D2601C67D009D58EB /* CustomViews */,
+				88CAA4C9260081D9009D58EB /* Extensions */,
+				88CAA4D826008A81009D58EB /* LaunchList */,
 				ED8968FF25FFC07A00822A9D /* Networking */,
-				ED8968D325FFBD1100822A9D /* ContentView.swift */,
+				ED89694C25FFDEE800822A9D /* Resources */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -146,6 +204,7 @@
 				ED89693C25FFDB9E00822A9D /* GraphQLSchema.json */,
 				ED89690125FFC07A00822A9D /* Queries.graphql */,
 				ED89693D25FFDB9E00822A9D /* Route.swift */,
+				88CAA44A260059EB009D58EB /* ServiceManager.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -177,7 +236,7 @@
 				ED8968D525FFBD1400822A9D /* Sources */,
 				ED8968D625FFBD1400822A9D /* Frameworks */,
 				ED8968D725FFBD1400822A9D /* Resources */,
-				ED8968FA25FFBF1C00822A9D /* Generate GraphQL API */,
+				ED8968FA25FFBF1C00822A9D /* Apollo CLI */,
 				81F6A1BCF7831D3ABF515332 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -185,6 +244,8 @@
 			dependencies = (
 			);
 			name = "GraphQL (iOS)";
+			packageProductDependencies = (
+			);
 			productName = "GraphQL (iOS)";
 			productReference = ED8968D925FFBD1400822A9D /* GraphQL.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +294,8 @@
 				Base,
 			);
 			mainGroup = ED8968CC25FFBD1000822A9D;
+			packageReferences = (
+			);
 			productRefGroup = ED8968DA25FFBD1400822A9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,7 +391,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GraphQL (iOS)/Pods-GraphQL (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED8968FA25FFBF1C00822A9D /* Generate GraphQL API */ = {
+		ED8968FA25FFBF1C00822A9D /* Apollo CLI */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +400,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Generate GraphQL API";
+			name = "Apollo CLI";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -353,9 +416,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CAA4E426008B73009D58EB /* View+Ext.swift in Sources */,
+				88CAA51F2601C691009D58EB /* ActivityIndicatorView.swift in Sources */,
 				ED89694E25FFDEE800822A9D /* GraphQLApp.swift in Sources */,
 				ED89694025FFDB9E00822A9D /* Route.swift in Sources */,
-				ED8968E725FFBD1400822A9D /* ContentView.swift in Sources */,
+				88CAA4EE2600922B009D58EB /* LaunchListViewModel.swift in Sources */,
+				88CAA4CB260081E9009D58EB /* Action+Networking.swift in Sources */,
+				ED8968E725FFBD1400822A9D /* LaunchListView.swift in Sources */,
+				88CAA4DF26008B50009D58EB /* AppWireframe.swift in Sources */,
+				88CAA4E926008D59009D58EB /* LaunchCell.swift in Sources */,
+				88CAA44B260059EB009D58EB /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,9 +433,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CAA4E526008B73009D58EB /* View+Ext.swift in Sources */,
 				ED89694F25FFDEE800822A9D /* GraphQLApp.swift in Sources */,
 				ED89694125FFDB9E00822A9D /* Route.swift in Sources */,
-				ED8968E825FFBD1400822A9D /* ContentView.swift in Sources */,
+				88CAA4EF2600922B009D58EB /* LaunchListViewModel.swift in Sources */,
+				88CAA4CC260081E9009D58EB /* Action+Networking.swift in Sources */,
+				ED8968E825FFBD1400822A9D /* LaunchListView.swift in Sources */,
+				88CAA4E026008B50009D58EB /* AppWireframe.swift in Sources */,
+				88CAA4EA26008D59009D58EB /* LaunchCell.swift in Sources */,
+				88CAA44C260059EB009D58EB /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 53MFN587RT;
+				DEVELOPMENT_TEAM = J26P933G7J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -498,7 +574,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pallab.GraphQL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pallab.GraphQL.test;
 				PRODUCT_NAME = GraphQL;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;

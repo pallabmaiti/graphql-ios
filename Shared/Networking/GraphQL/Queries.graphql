@@ -1,9 +1,14 @@
-query AllLaunches {
-  launchesPast(limit: 10) {
+query LaunchList {
+    launchesPast(limit: 20) {
+        ...LaunchFragment
+    }
+}
+
+fragment LaunchFragment on Launch {
+    id
     mission_name
     launch_date_local
     launch_site {
       site_name_long
     }
-  }
 }

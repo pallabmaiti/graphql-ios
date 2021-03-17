@@ -1,18 +1,38 @@
 PODS:
+  - Action (4.3.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - Apollo (0.42.0):
     - Apollo/Core (= 0.42.0)
   - Apollo/Core (0.42.0)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
 
 DEPENDENCIES:
+  - Action
   - Apollo
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
+    - Action
     - Apollo
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
+  Action: 9891cd1b0a9047557d7e58e8dfae743e19d08197
   Apollo: c3f1cc3bfb36e1c4bbb642f44184ad759ad42a87
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
 
-PODFILE CHECKSUM: 1ca0865da3a08cc12bd4e47a16bd9156a1bbed65
+PODFILE CHECKSUM: 3b01332ff1b223a72ccde1d64b87913791abd42d
 
 COCOAPODS: 1.10.0
