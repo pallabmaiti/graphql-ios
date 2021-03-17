@@ -7,9 +7,16 @@
 
 import SwiftUI
 import Apollo
+import RxSwift
+import RxCocoa
 
 struct LaunchListView: View {
     @ObservedObject var viewModel = LaunchListViewModel()
+    
+    init() {
+        let input = LaunchListViewModel.Input(fetchLaunchList: Observable.just(Void.self).mapToVoid().asDriverOnErrorJustComplete())
+        let _ = viewModel.transform(input: input)
+    }
     
     var body: some View {
         if viewModel.showHUD == true {
@@ -26,7 +33,7 @@ struct LaunchListView: View {
             }
             .environment(\.defaultMinListRowHeight, 60)
             .listSeparatorStyleNone()
-            .navigationBarTitle("SpaceX Launchs")
+            .navigationBarTitle("SpaceX Launch List")
         }
     }
 }

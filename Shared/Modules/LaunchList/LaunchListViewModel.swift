@@ -31,11 +31,32 @@ class LaunchListViewModel: ObservableObject {
                     self.showHUD = false
                 }
             }).disposed(by: disposeBag)
-        
-        fetchLaunchList()
     }
     
     private func fetchLaunchList() {
         actionNetworking.fetchLaunchListAction.execute()
+    }
+}
+
+extension LaunchListViewModel: ViewModelType {
+    struct Input {
+        let fetchLaunchList: Driver<Void>
+    }
+    
+    class Output {
+        @Published var launchList: [LaunchFragment]
+        
+        init(launchList: [LaunchFragment]) {
+            self.launchList = launchList
+        }
+    }
+    
+    func transform(input: Input) -> Output {
+        input.fetchLaunchList
+            .drive(onNext: { [weak self] in
+                self?.fetchLaunchList()
+            }).disposed(by: disposeBag)
+        
+        return Output(launchList: launchList)
     }
 }

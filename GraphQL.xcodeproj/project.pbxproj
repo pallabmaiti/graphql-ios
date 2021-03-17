@@ -21,6 +21,9 @@
 		88CAA4EE2600922B009D58EB /* LaunchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */; };
 		88CAA4EF2600922B009D58EB /* LaunchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */; };
 		88CAA51F2601C691009D58EB /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */; };
+		88CAA5262601CB1F009D58EB /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA5252601CB1F009D58EB /* ViewModelType.swift */; };
+		88CAA52D2601D2BD009D58EB /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA52C2601D2BD009D58EB /* Observable+Ext.swift */; };
+		88CAA52E2601D2BD009D58EB /* Observable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CAA52C2601D2BD009D58EB /* Observable+Ext.swift */; };
 		D3B94BF58B6DE2B89930BFEA /* Pods_GraphQL__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC892C19F86D3C725903B25 /* Pods_GraphQL__iOS_.framework */; };
 		ED8968E725FFBD1400822A9D /* LaunchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* LaunchListView.swift */; };
 		ED8968E825FFBD1400822A9D /* LaunchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8968D325FFBD1100822A9D /* LaunchListView.swift */; };
@@ -47,6 +50,8 @@
 		88CAA4E826008D59009D58EB /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		88CAA4ED2600922B009D58EB /* LaunchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListViewModel.swift; sourceTree = "<group>"; };
 		88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		88CAA5252601CB1F009D58EB /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		88CAA52C2601D2BD009D58EB /* Observable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Ext.swift"; sourceTree = "<group>"; };
 		8D24D85128BFFD4763DC8C9D /* Pods-GraphQL (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL (iOS).release.xcconfig"; path = "Target Support Files/Pods-GraphQL (iOS)/Pods-GraphQL (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		E338BBC653C6ABE3446B1161 /* Pods-GraphQL (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL (macOS).debug.xcconfig"; path = "Target Support Files/Pods-GraphQL (macOS)/Pods-GraphQL (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		ED8968D325FFBD1100822A9D /* LaunchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListView.swift; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 			children = (
 				88CAA4CA260081E9009D58EB /* Action+Networking.swift */,
 				88CAA4E326008B73009D58EB /* View+Ext.swift */,
+				88CAA52C2601D2BD009D58EB /* Observable+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,6 +122,22 @@
 				88CAA51E2601C691009D58EB /* ActivityIndicatorView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		88CAA5242601CADE009D58EB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA5252601CB1F009D58EB /* ViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		88CAA5292601CB4D009D58EB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				88CAA4D826008A81009D58EB /* LaunchList */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		8ADA8A2DCAE54A5F95EFFC25 /* Frameworks */ = {
@@ -157,8 +179,9 @@
 				88CAA4DD26008B50009D58EB /* Constants */,
 				88CAA51D2601C67D009D58EB /* CustomViews */,
 				88CAA4C9260081D9009D58EB /* Extensions */,
-				88CAA4D826008A81009D58EB /* LaunchList */,
+				88CAA5292601CB4D009D58EB /* Modules */,
 				ED8968FF25FFC07A00822A9D /* Networking */,
+				88CAA5242601CADE009D58EB /* Protocols */,
 				ED89694C25FFDEE800822A9D /* Resources */,
 			);
 			path = Shared;
@@ -416,9 +439,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CAA5262601CB1F009D58EB /* ViewModelType.swift in Sources */,
 				88CAA4E426008B73009D58EB /* View+Ext.swift in Sources */,
 				88CAA51F2601C691009D58EB /* ActivityIndicatorView.swift in Sources */,
 				ED89694E25FFDEE800822A9D /* GraphQLApp.swift in Sources */,
+				88CAA52D2601D2BD009D58EB /* Observable+Ext.swift in Sources */,
 				ED89694025FFDB9E00822A9D /* Route.swift in Sources */,
 				88CAA4EE2600922B009D58EB /* LaunchListViewModel.swift in Sources */,
 				88CAA4CB260081E9009D58EB /* Action+Networking.swift in Sources */,
@@ -437,6 +462,7 @@
 				ED89694F25FFDEE800822A9D /* GraphQLApp.swift in Sources */,
 				ED89694125FFDB9E00822A9D /* Route.swift in Sources */,
 				88CAA4EF2600922B009D58EB /* LaunchListViewModel.swift in Sources */,
+				88CAA52E2601D2BD009D58EB /* Observable+Ext.swift in Sources */,
 				88CAA4CC260081E9009D58EB /* Action+Networking.swift in Sources */,
 				ED8968E825FFBD1400822A9D /* LaunchListView.swift in Sources */,
 				88CAA4E026008B50009D58EB /* AppWireframe.swift in Sources */,
